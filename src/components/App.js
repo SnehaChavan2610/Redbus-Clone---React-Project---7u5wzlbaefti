@@ -1,25 +1,34 @@
 import React from 'react'
 import '../styles/App.css';
-import { BrowserRouter ,Routes ,Route } from 'react-router-dom';
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
-import '../components'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './home/Home';
+import BusList from './booking/BusList';
+import Nav from './layouts/Nav';
+import NotFound from './general/NotFound';
+import PrintTicket from './booking/PrintTicket';
+import Fake_footer from './layouts/Fake_footer';
+import Footer from './layouts/Footer';
 
-import Home from './Home';
-import List from './List';
+
 const App = () => {
 
 
   return (
 
-   <BrowserRouter>
-   <Routes>
-    <Route path='/home'element={<Home/>}/>
-    <Route path='/list'element={<List/>}/>
-    
+    <BrowserRouter>
+        <Nav />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/bus-tickets' element={<BusList />} /> 
+        <Route path='/booked-ticket' element={<PrintTicket />} /> 
+        <Route path='/*' element={<NotFound />} /> 
 
-  
-   </Routes>
-   </BrowserRouter>
+
+
+      </Routes>
+      <Fake_footer/>
+      <Footer />
+    </BrowserRouter>
   )
 }
 
